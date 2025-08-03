@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<body>
+    
+    <?php echo php_ini_loaded_file(); ?>
+    <form action="upload.php" method="POST" enctype="multipart/form-data">
+        Select sound to upload:
+        <input type="text" name="name" id="name">
+        <input type="file" name="fileToUpload" id="fileToUpload">
+        <input type="submit" value="Upload Sound" name="submit">
+    </form>
+
+</body>
+</html>

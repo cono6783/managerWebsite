@@ -4,8 +4,8 @@ error_reporting(E_ALL);
 
 var_dump($_POST);
 var_dump($_FILES);
-echo shell_exec("pwd")
-echo shell_exec("whoami")
+echo shell_exec("pwd");
+echo shell_exec("whoami");
 
 $name = $_POST["name"];
 $fileType = strtolower(pathinfo(basename($_FILES["workingdirzip"]["name"]),PATHINFO_EXTENSION));

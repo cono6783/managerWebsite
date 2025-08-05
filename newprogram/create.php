@@ -4,6 +4,7 @@ error_reporting(E_ALL);
 
 var_dump($_POST);
 var_dump($_FILES);
+phpinfo();
 
 $name = $_POST["name"];
 $fileType = strtolower(pathinfo(basename($_FILES["workingdirzip"]["name"]),PATHINFO_EXTENSION));

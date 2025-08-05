@@ -4,13 +4,14 @@ error_reporting(E_ALL);
 
 var_dump($_POST);
 var_dump($_FILES);
-phpinfo();
+echo shell_exec("pwd")
+echo shell_exec("whoami")
 
 $name = $_POST["name"];
 $fileType = strtolower(pathinfo(basename($_FILES["workingdirzip"]["name"]),PATHINFO_EXTENSION));
 $workingdir = "/var/projects/$name/";
 $startcmd = $_POST["startcmd"];
-$uploadOk = 1;
+$uploadOk = 0; #Disable uploads for testing
 
 
 

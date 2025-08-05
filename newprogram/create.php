@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 $name = $_POST["name"];
 $fileType = strtolower(pathinfo(basename($_FILES["workingdirzip"]["name"]),PATHINFO_EXTENSION));
 $workingdir = "/var/projects/$name/";
-$startcmd = $_POST["startcmd"]
+$startcmd = $_POST["startcmd"];
 $uploadOk = 1;
 
 
@@ -22,14 +22,14 @@ if ($fileType != "zip") {
 }
 
 if ($uploadOk == 0) {
-    echo "Project not created"
+    echo "Project not created";
 } echo {
     var_dump($_FILES)
     if (move_uploaded_file($_FILES["workingdirzip"]["tmp_name"], "/var/projects/$name.zip")) {
-        echo shell_exec("unzip /var/projects/$name.zip -d /var/projects/$name/")
-        echo shell_exec("./createservice.sh '$name' '$startcmd' '/var/projects/$name', jhub")
+        echo shell_exec("unzip /var/projects/$name.zip -d /var/projects/$name/");
+        echo shell_exec("./createservice.sh '$name' '$startcmd' '/var/projects/$name', jhub");
     } else {
-        echo "File did not upload"
+        echo "File did not upload";
     }
 }
 

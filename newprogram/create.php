@@ -32,7 +32,7 @@ if ($uploadOk == 0) {
     var_dump($_FILES);
     if (move_uploaded_file($_FILES["workingdirzip"]["tmp_name"], "/var/projects/$name.zip")) {
         echo shell_exec("unzip /var/projects/$name.zip -d /var/projects/$name/");
-        echo shell_exec("./createservice.sh '$name' '$startcmd' '/var/projects/$name', jhub");
+        echo shell_exec("./createservice.sh '$name' '$startcmd' '/var/projects/$name' jhub");
     } else {
         echo "File did not upload";
     }

@@ -23,7 +23,7 @@ if ($fileType != "mp3") {
 if ($uploadOk == 0) {
     echo "File not uploaded";
 } else {
-    var_dump($_FILES);
+    var_dump($_FILES); //debug
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
         echo "File uploaded successfully";
     } else {

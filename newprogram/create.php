@@ -33,11 +33,15 @@ if ($uploadOk == 0) {
     if (move_uploaded_file($_FILES["workingdirzip"]["tmp_name"], "/var/projects/$name.zip")) {
         echo shell_exec("unzip /var/projects/$name.zip -d /var/projects/$name/");
         echo shell_exec("./createservice.sh '$name' '$startcmd' '/var/projects/$name' jhub");
+        redirect("/");
     } else {
         echo "File did not upload";
     }
 }
 
-
+function redirect($url) {
+    header('Location: '.$url);
+    die();
+}
 
 ?>

@@ -11,7 +11,7 @@ $name = $_POST["name"];
 $fileType = strtolower(pathinfo(basename($_FILES["workingdirzip"]["name"]),PATHINFO_EXTENSION));
 $workingdir = "/var/projects/$name/";
 $startcmd = $_POST["startcmd"];
-$uploadOk = 0; #Disable uploads for testing
+$uploadOk = 1;
 
 
 

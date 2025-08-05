@@ -12,7 +12,7 @@ echo "ExecStart=$2" >> /etc/systemd/system/$1.service
 echo "User=$4" >> /etc/systemd/system/$1.service
 echo "" >> /etc/systemd/system/$1.service
 echo "[Install]" >> /etc/systemd/system/$1.service
-echo "WantedBy=multi.user.target" >> /etc/systemd/system/$1.service
+echo "WantedBy=multi-user.target" >> /etc/systemd/system/$1.service
 
 systemctl daemon-reload
 systemctl start $1 #This will get moved to the project management page in the future

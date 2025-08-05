@@ -23,7 +23,7 @@ if ($fileType != "zip") {
 
 if ($uploadOk == 0) {
     echo "Project not created";
-} echo {
+} else {
     var_dump($_FILES)
     if (move_uploaded_file($_FILES["workingdirzip"]["tmp_name"], "/var/projects/$name.zip")) {
         echo shell_exec("unzip /var/projects/$name.zip -d /var/projects/$name/");

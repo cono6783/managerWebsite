@@ -2,6 +2,9 @@
 ini_set('display_errors',1);
 error_reporting(E_ALL);
 
+var_dump($_POST);
+var_dump($_FILES);
+
 $name = $_POST["name"];
 $fileType = strtolower(pathinfo(basename($_FILES["workingdirzip"]["name"]),PATHINFO_EXTENSION));
 $workingdir = "/var/projects/$name/";

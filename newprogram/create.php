@@ -11,6 +11,7 @@ $name = $_POST["name"];
 $fileType = strtolower(pathinfo(basename($_FILES["workingdirzip"]["name"]),PATHINFO_EXTENSION));
 $workingdir = "/var/projects/$name/";
 $startcmd = $_POST["startcmd"];
+$runningUser = $_POST["runninguser"];
 $uploadOk = 1;
 
 
@@ -32,7 +33,15 @@ if ($uploadOk == 0) {
     var_dump($_FILES);
     if (move_uploaded_file($_FILES["workingdirzip"]["tmp_name"], "/var/projects/$name.zip")) {
         shell_exec("unzip /var/projects/$name.zip -d /var/projects/$name/");
-        shell_exec("./createservice.sh '$name' '$startcmd' '/var/projects/$name' jhub");
+        shell_exec("./createservice.sh '$name' '$startcmd' '$workingdir' $runninguser");
+        #Write the config file to be read by the js on the main page
+        $configFile = "/var/projects/$name/displayedcfg";
+        $handle = fopen($configFile, "w");
+        fwrite($handle, "Name:$name");
+        fwrite($handle, "StartCommand:$startcmd");
+        fwrite($handle, "WorkingDir:$workingdir");
+        fwrite($handle, "User:$runninguser");
+        fclose($handle);
         redirect("/");
     } else {
         echo "File did not upload";
